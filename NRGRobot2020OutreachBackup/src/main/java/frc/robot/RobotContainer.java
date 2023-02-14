@@ -18,7 +18,9 @@ public class RobotContainer {
 
   private final TankDrive drivetrain = new TankDrive();
   private final Intake intaker = new Intake();
-
+  private final Feeder feeder = new Feeder();
+  private final Hood hood = new Hood();
+  private final Turret turret = new Turret();
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the button bindings
@@ -27,6 +29,9 @@ public class RobotContainer {
     // COMMENT OUT THE NEXT LINE TO USE XBOX CONTROLLER ON PORT 3
     drivetrain.setDefaultCommand(new DefaultDrive(drivetrain,leftJoystick::getY, rightJoystick::getY));
     intaker.setDefaultCommand(new ControlIntake(intaker, operatorController));
+    feeder.setDefaultCommand(new ControlFeeder(feeder, operatorController));
+    hood.setDefaultCommand(new ControlHood(hood, operatorController));
+    turret.setDefaultCommand(new ControlTurret(turret, operatorController));
 
     // UNCOMMENT THIS LINE TO USE XBOX CONTROLLER
     //drivetrain.setDefaultCommand(new DefaultDrive(drivetrain,driveController::getLeftY, driveController::getRightY));
