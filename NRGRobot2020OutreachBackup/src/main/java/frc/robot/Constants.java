@@ -21,7 +21,7 @@ public final class Constants {
     public static final int kRightDriveMotor2 = 1;
 
     public static final double kSlowModePower = 0.75; //percent
-    public static final double kDriveSlewRate = 0.75; // x percent increase per second
+    public static final double kDriveSlewRate = 0.95; // x percent increase per second
     public static final double kFullSpeedRateLimit = 0.01; //Increase (percentage of 1) per 20ms
   }
 

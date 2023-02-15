@@ -11,8 +11,9 @@ import edu.wpi.first.math.filter.SlewRateLimiter;
 
 public class TankDrive extends SubsystemBase {
 
-  private final SlewRateLimiter leftSlewLimit = new SlewRateLimiter(DriveConstants.kDriveSlewRate);
-  private final SlewRateLimiter rightSlewLimit = new SlewRateLimiter(DriveConstants.kDriveSlewRate);
+  //TODO: slewrate need more tuning
+  //private final SlewRateLimiter leftSlewLimit = new SlewRateLimiter(DriveConstants.kDriveSlewRate);
+  //private final SlewRateLimiter rightSlewLimit = new SlewRateLimiter(DriveConstants.kDriveSlewRate);
 
   // copy pasted from 2020 948 robot code
 
@@ -28,7 +29,8 @@ public class TankDrive extends SubsystemBase {
 
   public void diffDrive(double leftspeed,double rightspeed) {
     leftMotors.setInverted(true);
-    diffDrive.tankDrive(leftSlewLimit.calculate(leftspeed),rightSlewLimit.calculate(rightspeed));
+    //diffDrive.tankDrive(leftSlewLimit.calculate(leftspeed),rightSlewLimit.calculate(rightspeed));
+    diffDrive.tankDrive(leftspeed,rightspeed);
   }
 
   public void setMaxOutput(double maxOutput) {
