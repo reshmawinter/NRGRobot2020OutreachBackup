@@ -21,6 +21,8 @@ public class RobotContainer {
   private final Feeder feeder = new Feeder();
   private final Hood hood = new Hood();
   private final Turret turret = new Turret();
+  private final ShooterRPM rpm = new ShooterRPM();
+
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the button bindings
@@ -32,6 +34,7 @@ public class RobotContainer {
     feeder.setDefaultCommand(new ControlFeeder(feeder, operatorController));
     hood.setDefaultCommand(new ControlHood(hood, operatorController));
     turret.setDefaultCommand(new ControlTurret(turret, operatorController));
+    rpm.setDefaultCommand(new ManualShooter(rpm, operatorController));
 
     // UNCOMMENT THIS LINE TO USE XBOX CONTROLLER
     //drivetrain.setDefaultCommand(new DefaultDrive(drivetrain,driveController::getLeftY, driveController::getRightY));

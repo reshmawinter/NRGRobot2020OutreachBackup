@@ -27,9 +27,9 @@ public class ControlHood extends CommandBase {
   @Override
   public void execute() {
     if(m_XboxController.getHID().getPOV() == 0) {
-      power = 0.5; // no longer HOOD_MANUAL_MOTOR_POWER from the 2020 NRGPreferences.java
+      power = 0.2; // no longer HOOD_MANUAL_MOTOR_POWER from the 2020 NRGPreferences.java
     } else if (m_XboxController.getHID().getPOV() == 180) {
-      power = -0.5; // no longer HOOD_MANUAL_MOTOR_POWER from the 2020 NRGPreferences.java
+      power = -0.2; // no longer HOOD_MANUAL_MOTOR_POWER from the 2020 NRGPreferences.java
     } else {
       power = 0;
     }

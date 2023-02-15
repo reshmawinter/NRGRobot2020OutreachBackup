@@ -24,5 +24,11 @@ public final class Constants {
     public static final double kDriveSlewRate = 0.75; // x percent increase per second
     public static final double kFullSpeedRateLimit = 0.01; //Increase (percentage of 1) per 20ms
   }
+
+  public static final class ShooterConstants {
+    public static final int kSpinMotor1Port = 4;
+    public static final int kSpinMotor2Port = 5;
+    public static final int kSpinEncoderPort = 4;
+}
 }
 
