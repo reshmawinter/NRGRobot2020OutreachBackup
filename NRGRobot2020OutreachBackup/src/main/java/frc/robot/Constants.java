@@ -15,14 +15,16 @@ package frc.robot;
 public final class Constants {
   public static final class DriveConstants {
     //PWM ports
-    public static final int kLeftDriveMotor1 = 2;
-    public static final int kLeftDriveMotor2 = 3;
-    public static final int kRightDriveMotor1 = 0;
-    public static final int kRightDriveMotor2 = 1;
+    public static final int kLeftDriveMotor1Port = 2;
+    public static final int kLeftDriveMotor2Port = 3;
+    public static final int kRightDriveMotor1Port = 0;
+    public static final int kRightDriveMotor2Port = 1;
 
     public static final double kSlowModePower = 0.75; //percent
-    public static final double kDriveSlewRate = 0.95; // x percent increase per second
     public static final double kFullSpeedRateLimit = 0.01; //Increase (percentage of 1) per 20ms
+
+    //TODO: slewrate need more tuning
+    public static final double kDriveSlewRate = 1000; // x percent increase per second, set to arbitrarily high number to disable
   }
 
   public static final class ShooterConstants {

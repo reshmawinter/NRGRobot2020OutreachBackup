@@ -11,16 +11,13 @@ import edu.wpi.first.math.filter.SlewRateLimiter;
 
 public class TankDrive extends SubsystemBase {
 
-  //TODO: slewrate need more tuning
-  //private final SlewRateLimiter leftSlewLimit = new SlewRateLimiter(DriveConstants.kDriveSlewRate);
-  //private final SlewRateLimiter rightSlewLimit = new SlewRateLimiter(DriveConstants.kDriveSlewRate);
+  private final SlewRateLimiter leftSlewLimit = new SlewRateLimiter(DriveConstants.kDriveSlewRate);
+  private final SlewRateLimiter rightSlewLimit = new SlewRateLimiter(DriveConstants.kDriveSlewRate);
 
-  // copy pasted from 2020 948 robot code
-
-  private MotorController leftMotor1 = new VictorSP(DriveConstants.kLeftDriveMotor1);
-  private MotorController leftMotor2 = new VictorSP(DriveConstants.kLeftDriveMotor2);
-  private MotorController rightMotor1 = new VictorSP(DriveConstants.kRightDriveMotor1);
-  private MotorController rightMotor2 = new VictorSP(DriveConstants.kRightDriveMotor2);
+  private MotorController leftMotor1 = new VictorSP(DriveConstants.kLeftDriveMotor1Port);
+  private MotorController leftMotor2 = new VictorSP(DriveConstants.kLeftDriveMotor2Port);
+  private MotorController rightMotor1 = new VictorSP(DriveConstants.kRightDriveMotor1Port);
+  private MotorController rightMotor2 = new VictorSP(DriveConstants.kRightDriveMotor2Port);
 
   private MotorControllerGroup leftMotors = new MotorControllerGroup(leftMotor1,leftMotor2);
   private MotorControllerGroup rightMotors = new MotorControllerGroup(rightMotor1,rightMotor2);
@@ -29,8 +26,7 @@ public class TankDrive extends SubsystemBase {
 
   public void diffDrive(double leftspeed,double rightspeed) {
     leftMotors.setInverted(true);
-    //diffDrive.tankDrive(leftSlewLimit.calculate(leftspeed),rightSlewLimit.calculate(rightspeed));
-    diffDrive.tankDrive(leftspeed,rightspeed);
+    diffDrive.tankDrive(leftSlewLimit.calculate(leftspeed),rightSlewLimit.calculate(rightspeed));
   }
 
   public void setMaxOutput(double maxOutput) {
