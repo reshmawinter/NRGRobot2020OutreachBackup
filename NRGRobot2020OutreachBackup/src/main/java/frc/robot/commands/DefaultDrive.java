@@ -1,20 +1,23 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.button.CommandJoystick;
+import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.subsystems.TankDrive;
-import java.util.function.DoubleSupplier;
 import frc.robot.Constants.DriveConstants;
 
 public class DefaultDrive extends CommandBase {
     @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
     private final TankDrive m_drive;
-    private final DoubleSupplier d_left;
-    private final DoubleSupplier d_right;
+    final CommandXboxController m_XboxController;
+    final CommandJoystick m_leftJoystick;
+    final CommandJoystick m_rightJoystick;
     
-    public DefaultDrive(TankDrive subsystem, DoubleSupplier left, DoubleSupplier right) {
+    public DefaultDrive(TankDrive subsystem, CommandJoystick lJoy, CommandJoystick rJoy, CommandXboxController xboxcontroller) {
       m_drive = subsystem;
-      d_left = left;
-      d_right = right;
+      m_XboxController = xboxcontroller;
+      m_leftJoystick = lJoy;
+      m_rightJoystick = rJoy;
       addRequirements(subsystem);
     }
     
@@ -23,6 +26,10 @@ public class DefaultDrive extends CommandBase {
     }
 
     public void execute() {
-      m_drive.diffDrive(d_left.getAsDouble(),d_right.getAsDouble());
+      if(DriveConstants.isUsingXboxController){
+        m_drive.diffDrive(m_XboxController.getLeftY(),m_XboxController.getRightY());
+      } else {
+        m_drive.diffDrive(m_leftJoystick.getY(),m_rightJoystick.getY());
+      }
     }
 }

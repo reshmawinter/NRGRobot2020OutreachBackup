@@ -1,2 +1,6 @@
 CONTROLS:
-- Standard Differential Drive on ports 0 and 1
+- Standard Differential Drive with Joysticks on DS ports 2 and 3 (left and right, respectively)
+- Differential Drive also possible on Xbox Controller DS port 0
+- Subsystems are controlled on operator Xbox Controller on DS port 1
+
+- Shooter is controlled by operator controller right trigger. Press and hold to spin up, release to allow for spin down.

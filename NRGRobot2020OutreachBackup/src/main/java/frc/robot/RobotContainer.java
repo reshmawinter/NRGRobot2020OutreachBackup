@@ -9,14 +9,12 @@ import frc.robot.subsystems.*;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.CommandJoystick;
 
-import frc.robot.Constants.DriveConstants;
-
 public class RobotContainer {
 
-  private final CommandJoystick leftJoystick = new CommandJoystick(0);
-  private final CommandJoystick rightJoystick = new CommandJoystick(1);
-  private final CommandXboxController operatorController = new CommandXboxController(2);
-  private final CommandXboxController driveController = new CommandXboxController(3);
+  private final CommandJoystick leftJoystick = new CommandJoystick(2);
+  private final CommandJoystick rightJoystick = new CommandJoystick(3);
+  private final CommandXboxController operatorController = new CommandXboxController(1);
+  private final CommandXboxController driveController = new CommandXboxController(0);
 
   private final TankDrive drivetrain = new TankDrive();
   private final Intake intaker = new Intake();
@@ -35,11 +33,7 @@ public class RobotContainer {
     turret.setDefaultCommand(new ControlTurret(turret, operatorController));
     rpm.setDefaultCommand(new ManualShooter(rpm, operatorController));
 
-    if(DriveConstants.isUsingXboxController){
-      drivetrain.setDefaultCommand(new DefaultDrive(drivetrain,driveController::getLeftY, driveController::getRightY));
-    } else {
-      drivetrain.setDefaultCommand(new DefaultDrive(drivetrain,leftJoystick::getY, rightJoystick::getY));
-    }
+    drivetrain.setDefaultCommand(new DefaultDrive(drivetrain,leftJoystick, rightJoystick,driveController));
   }
 
   /**
