@@ -20,8 +20,10 @@ public final class Constants {
     public static final int kRightDriveMotor1Port = 0;
     public static final int kRightDriveMotor2Port = 1;
 
-    public static final double kSlowModePower = 0.75; //percent
+    public static final double kSlowModePower = 0.5; //percent
     public static final double kFullSpeedRateLimit = 0.01; //Increase (percentage of 1) per 20ms
+
+    public static final boolean isUsingXboxController = false; //CHANGE THIS TO USE XBOX CONTROLLER TO DRIVE
 
     //TODO: slewrate need more tuning
     public static final double kDriveSlewRate = 1000; // x percent increase per second, set to arbitrarily high number to disable

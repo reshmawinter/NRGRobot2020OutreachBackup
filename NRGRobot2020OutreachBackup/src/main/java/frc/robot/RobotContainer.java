@@ -4,15 +4,17 @@
 
 package frc.robot;
 
-import edu.wpi.first.wpilibj.Joystick;
 import frc.robot.commands.*;
 import frc.robot.subsystems.*;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import edu.wpi.first.wpilibj2.command.button.CommandJoystick;
+
+import frc.robot.Constants.DriveConstants;
 
 public class RobotContainer {
 
-  private final Joystick leftJoystick = new Joystick(0);
-  private final Joystick rightJoystick = new Joystick(1);
+  private final CommandJoystick leftJoystick = new CommandJoystick(0);
+  private final CommandJoystick rightJoystick = new CommandJoystick(1);
   private final CommandXboxController operatorController = new CommandXboxController(2);
   private final CommandXboxController driveController = new CommandXboxController(3);
 
@@ -27,17 +29,17 @@ public class RobotContainer {
   public RobotContainer() {
     // Configure the button bindings
     configureButtonBindings();
-
-    // COMMENT OUT THE NEXT LINE TO USE XBOX CONTROLLER ON PORT 3
-    drivetrain.setDefaultCommand(new DefaultDrive(drivetrain,leftJoystick::getY, rightJoystick::getY));
     intaker.setDefaultCommand(new ControlIntake(intaker, operatorController));
     feeder.setDefaultCommand(new ControlFeeder(feeder, operatorController));
     hood.setDefaultCommand(new ControlHood(hood, operatorController));
     turret.setDefaultCommand(new ControlTurret(turret, operatorController));
     rpm.setDefaultCommand(new ManualShooter(rpm, operatorController));
 
-    // UNCOMMENT THIS LINE TO USE XBOX CONTROLLER
-    //drivetrain.setDefaultCommand(new DefaultDrive(drivetrain,driveController::getLeftY, driveController::getRightY));
+    if(DriveConstants.isUsingXboxController){
+      drivetrain.setDefaultCommand(new DefaultDrive(drivetrain,driveController::getLeftY, driveController::getRightY));
+    } else {
+      drivetrain.setDefaultCommand(new DefaultDrive(drivetrain,leftJoystick::getY, rightJoystick::getY));
+    }
   }
 
   /**
