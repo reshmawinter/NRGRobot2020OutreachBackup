@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj2.command.button.CommandJoystick;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.subsystems.TankDrive;
 import frc.robot.Constants.DriveConstants;
+import frc.robot.commands.SetDriveMode;
 
 public class DefaultDrive extends CommandBase {
     @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
@@ -26,10 +27,15 @@ public class DefaultDrive extends CommandBase {
     }
 
     public void execute() {
-      if(DriveConstants.isUsingXboxController){
+      if(SetDriveMode.DriveControllerMode == 1){
         m_drive.diffDrive(m_XboxController.getLeftY(),m_XboxController.getRightY());
-      } else {
+      } else if (SetDriveMode.DriveControllerMode == 0) {
         m_drive.diffDrive(m_leftJoystick.getY(),m_rightJoystick.getY());
+      } else if (SetDriveMode.DriveControllerMode == 2) {
+        
+      } else {
+        m_drive.diffDrive(0, 0);
+        System.out.print("No Drive Controller Mode!");
       }
     }
 }
