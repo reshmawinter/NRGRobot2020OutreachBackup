@@ -32,7 +32,17 @@ public final class Constants {
   public static final class ShooterConstants {
     public static final int kSpinMotor1Port = 4;
     public static final int kSpinMotor2Port = 5;
+    public static final int kHoodMotorPort = 6;
+    public static final int kTurretMotorPort = 7;
     public static final int kSpinEncoderPort = 4;
-}
+    public static final int kTurretEncoderAPort = 6;
+    public static final int kTurretEncoderBPort = 7;
+    public static final int kHoodAnalogEncoderPort = 0;
+  }
+
+  public static final class IntakeConstants {
+    public static final int kIntakeMotorPort = 8;
+    public static final int kFeederMotorPort = 9;
+  }
 }
 

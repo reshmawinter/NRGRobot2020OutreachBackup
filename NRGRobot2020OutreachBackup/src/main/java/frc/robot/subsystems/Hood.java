@@ -9,6 +9,8 @@ import edu.wpi.first.wpilibj.AnalogEncoder;
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.motorcontrol.Victor;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.Constants.ShooterConstants;
 
 public class Hood extends SubsystemBase {
   private static final double HOOD_BACK_VOLTAGE_PRACTICE = 4.12;
@@ -25,8 +27,8 @@ public class Hood extends SubsystemBase {
   private static final double TRENCH_FAR_SHOOT_DISTANCE = 330; // inches
   private static final double TOLERANCE = 0.1;
 
-  private final Victor hoodMotor = new Victor(6);
-  private final AnalogInput encoderInput = new AnalogInput(1);
+  private final Victor hoodMotor = new Victor(ShooterConstants.kHoodMotorPort);
+  private final AnalogInput encoderInput = new AnalogInput(ShooterConstants.kHoodAnalogEncoderPort);
   private final AnalogEncoder hoodEncoder = new AnalogEncoder(encoderInput);
 
   /** Creates a new Hood. */
@@ -50,6 +52,6 @@ public class Hood extends SubsystemBase {
 
   @Override
   public void periodic() {
-    // This method will be called once per scheduler run
+    SmartDashboard.putNumber("Hood Position", getPosition());
   }
 }

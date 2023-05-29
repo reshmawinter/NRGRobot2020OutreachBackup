@@ -6,10 +6,11 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.motorcontrol.Victor;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants.IntakeConstants;
 
 public class Feeder extends SubsystemBase {
 
-  private Victor feederMotor = new Victor(9);
+  private Victor feederMotor = new Victor(IntakeConstants.kFeederMotorPort);
 
   /** Creates a new Feeder. */
   public Feeder() {

@@ -7,6 +7,7 @@ package frc.robot.subsystems;
 import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants.IntakeConstants;
 
 public class Intake extends SubsystemBase {
   /** Creates a new Intake. */
@@ -14,7 +15,7 @@ public class Intake extends SubsystemBase {
   public Intake() {
   }
 
-  private final PWMSparkMax intakeMotor = new PWMSparkMax(8);
+  private final PWMSparkMax intakeMotor = new PWMSparkMax(IntakeConstants.kIntakeMotorPort);
 
   @Override
   public void periodic() {
