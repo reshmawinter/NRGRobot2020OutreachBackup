@@ -20,8 +20,8 @@ public class Hood extends SubsystemBase {
   private static final double HOOD_VOLTAGE_RANGE_COMPETITION = 2.49;
 
   private static final int MAX_LIMIT = 100;
-  private static final int LOWER_HARD_STOP = 152;
-  private static final int UPPER_HARD_STOP = 158;
+  private static final int LOWER_HARD_STOP = 127;
+  private static final int UPPER_HARD_STOP = 155;
 
   private static final double INITIATION_SHOOT_DISTANCE = 160; // inches
   private static final double TRENCH_FAR_SHOOT_DISTANCE = 330; // inches
