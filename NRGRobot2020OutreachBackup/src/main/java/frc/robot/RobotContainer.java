@@ -16,6 +16,8 @@ public class RobotContainer {
   private final CommandXboxController operatorController = new CommandXboxController(1);
   private final CommandXboxController driveController = new CommandXboxController(0);
 
+  //private final RobotController m_robotController;
+
   private final TankDrive drivetrain = new TankDrive();
   private final Intake intaker = new Intake();
   private final Feeder feeder = new Feeder();
@@ -44,6 +46,11 @@ public class RobotContainer {
    */
   private void configureButtonBindings() {
     operatorController.leftTrigger().whileTrue(new SetDriveSpeed(drivetrain));
+    
+    //m_robotController.getUserButton().debounce(0.1).onTrue(new SetDriveMode());
+    //fails to build
+
+    //TODO: Add the user button command
   }
 
   /**
