@@ -26,7 +26,7 @@ public class ControlIntake extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    intaker.rawIntake(-m_xboxController.getRightY());
+    intaker.rawIntake(m_xboxController.getRightY());
   }
 
   // Called once the command ends or is interrupted.

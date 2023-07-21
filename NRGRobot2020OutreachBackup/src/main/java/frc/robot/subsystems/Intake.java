@@ -23,8 +23,6 @@ public class Intake extends SubsystemBase {
 
   }
 
-  private static final double MAX_ACQUIRER_POWER = 1;
-
   public enum State {
     INTAKING, EJECTING, STATIC;
   }
@@ -32,7 +30,7 @@ public class Intake extends SubsystemBase {
   public State state;
 
   public void rawIntake(final double power) {
-    double sentPower = MathUtil.clamp(power, -MAX_ACQUIRER_POWER, MAX_ACQUIRER_POWER);
+    double sentPower = MathUtil.clamp(power, -IntakeConstants.kMaxIntakePower, IntakeConstants.kMaxIntakePower);
     // Decides if intake is intaking or ejecting
     if (sentPower > 0) {
       state = State.INTAKING;

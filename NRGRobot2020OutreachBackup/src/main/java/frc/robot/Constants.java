@@ -43,6 +43,7 @@ public final class Constants {
   public static final class IntakeConstants {
     public static final int kIntakeMotorPort = 8;
     public static final int kFeederMotorPort = 9;
+    public static final double kMaxIntakePower = 1;
   }
 }
 

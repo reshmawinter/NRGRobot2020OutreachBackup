@@ -14,8 +14,7 @@ public class Feeder extends SubsystemBase {
 
   /** Creates a new Feeder. */
   public Feeder() {
-    // Sets the feeder motor to inverted
-    feederMotor.setInverted(true);
+
   }
 
   public void rawFeeder(double power) {
