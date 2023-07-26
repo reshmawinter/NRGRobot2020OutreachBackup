@@ -11,6 +11,7 @@ import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.util.Units;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.motorcontrol.Victor;
+import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Constants.ShooterConstants;
@@ -26,7 +27,7 @@ public class Turret extends SubsystemBase {
   private double cameraHorizontalCorrection;
 
   private final Victor turretMotor = new Victor(ShooterConstants.kTurretMotorPort);
-  private final Encoder turretEncoder = new Encoder(ShooterConstants.kTurretEncoderAPort,ShooterConstants.kTurretEncoderBPort);
+  private final static Encoder turretEncoder = new Encoder(ShooterConstants.kTurretEncoderAPort,ShooterConstants.kTurretEncoderBPort);
   private PIDController turredPidController;
   private double maxPower;
   private double lastAngle = 0;
@@ -42,7 +43,7 @@ public class Turret extends SubsystemBase {
     turretMotor.set(power);
   }
 
-  public double getHeading() {
+  public static double getHeading() {
     return turretEncoder.getDistance();
   }
 
@@ -50,7 +51,9 @@ public class Turret extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
-    //System.out.println(getHeading());
-    SmartDashboard.putNumber("Turret Heading", getHeading());
+    // System.out.println(getHeading());
+    // SmartDashboard.putNumber("Turret Heading", getHeading());
+    // Shuffleboard.getTab("Information")
+    //  .add("Turret Heading", getHeading());
   }
 }
