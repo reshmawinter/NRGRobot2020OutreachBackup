@@ -38,6 +38,8 @@ public final class Constants {
     public static final int kTurretEncoderAPort = 6; // should be 0
     public static final int kTurretEncoderBPort = 7; // should be 1
     public static final int kHoodAnalogEncoderPort = 0;
+
+    public static final double kShooterMaxPower = 1; //percent
   }
 
   public static final class IntakeConstants {
