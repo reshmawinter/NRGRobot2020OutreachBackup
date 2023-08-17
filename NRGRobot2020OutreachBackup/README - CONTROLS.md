@@ -21,4 +21,9 @@ Note that it will take multiple seconds for the shooter to fully spin up. Feedin
 * Once shooter is up to speed, use the operator controller left stick to control the feeder. Push up to push the ball into the shooter. Push down to push away the ball (for example, to clear the shooter to allow spinup).
 
 * The Hood and Turret are controlled by the operator controller's DPad. Use the up and down buttons for the hood and the left and right buttons for the turret.
-Note that there are no software limits, so ensure that you are not trying to pass a hard stop.
+Note that there are currently no software limits, so ensure that you are not trying to pass a hard stop.
+
+### OTHER NOTES:
+* The robot's name is Atris. 
+
+* The cost, when built, was roughly $4000-$6000.

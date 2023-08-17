@@ -45,7 +45,7 @@ public class RobotContainer {
     .withSize(2, 1) // makes the Turret Heading widget 2 wide and 1 high
     .getEntry(); 
 
-    ShuffleboardTab hoodTab = ShuffleBoard.getTab("Information");
+    ShuffleboardTab hoodTab = Shuffleboard.getTab("Information");
     hoodTab.add("Hood Heading", Hood.getHeading())
     .withPosition(3, 1)
     .withSize(2, 1);
