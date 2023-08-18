@@ -42,7 +42,8 @@ public class Hood extends SubsystemBase {
     double hoodPosition = getPosition();
     // Prevent the turret from moving past hard stops
     if (hoodPosition >= UPPER_HARD_STOP && power > 0 || hoodPosition < LOWER_HARD_STOP && power < 0) {
-      power = 0;
+      //power = 0;
+      //TODO: return
     }
     hoodMotor.set(power);
   }
