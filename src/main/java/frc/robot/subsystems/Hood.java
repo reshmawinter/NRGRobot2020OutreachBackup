@@ -22,8 +22,8 @@ public class Hood extends SubsystemBase {
   private static final double HOOD_VOLTAGE_RANGE_COMPETITION = 2.49;
 
   private static final int MAX_LIMIT = 100;
-  private static final int LOWER_HARD_STOP = 127;
-  private static final int UPPER_HARD_STOP = 158;
+  private static final int LOWER_HARD_STOP = 100;
+  private static final int UPPER_HARD_STOP = 128;
 
   private static final double INITIATION_SHOOT_DISTANCE = 160; // inches
   private static final double TRENCH_FAR_SHOOT_DISTANCE = 330; // inches
@@ -42,7 +42,7 @@ public class Hood extends SubsystemBase {
     double hoodPosition = getPosition();
     // Prevent the turret from moving past hard stops
     if (hoodPosition >= UPPER_HARD_STOP && power > 0 || hoodPosition < LOWER_HARD_STOP && power < 0) {
-      //power = 0;
+      power = 0;
       //TODO: return
     }
     hoodMotor.set(power);
