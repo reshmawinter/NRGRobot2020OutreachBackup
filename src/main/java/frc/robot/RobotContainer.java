@@ -39,7 +39,7 @@ public class RobotContainer {
     rpm.setDefaultCommand(new ManualShooter(rpm, operatorController));
 
     drivetrain.setDefaultCommand(new DefaultDrive(drivetrain,leftJoystick, rightJoystick,driveController));
-    ShuffleboardTab turretTab = Shuffleboard.getTab("Information"); // creates tab called Information on Shuffle board
+    /**ShuffleboardTab turretTab = Shuffleboard.getTab("Information"); // creates tab called Information on Shuffle board
     turretTab.add("Turret Heading", Turret.getHeading()) // adds a Turret Heading widget
     .withPosition(1, 1) // puts the Turret Heading widget at column and row index 1
     .withSize(2, 1) // makes the Turret Heading widget 2 wide and 1 high
@@ -55,24 +55,24 @@ public class RobotContainer {
     operatorTab.add("Operator", operatorTab) // adds a Turret Heading widget
     .withPosition(1, 1) // puts the Turret Heading widget at column and row index 1
     .withSize(2, 1) // makes the Turret Heading widget 2 wide and 1 high
-    .getEntry(); 
+    .getEntry(); **/
 
   }   
 
   
 
-  private void getEntry() {
-  }
+  // private void getEntry() {
+  // }
 
 
 
-  private Sendable preferencesTab() {
-    ShuffleboardTab preferencesTab = Shuffleboard.getTab("Preferences");
-    preferencesTab.add("YasQueen", preferencesTab())
-    .withPosition(1, 1)
-    .withSize(2, 1);
-    return null;
-  }
+  // private Sendable preferencesTab() {
+  //   ShuffleboardTab preferencesTab = Shuffleboard.getTab("Preferences");
+  //   preferencesTab.add("YasQueen", preferencesTab())
+  //   .withPosition(1, 1)
+  //   .withSize(2, 1);
+  //   return null;
+  // }
 
 
 

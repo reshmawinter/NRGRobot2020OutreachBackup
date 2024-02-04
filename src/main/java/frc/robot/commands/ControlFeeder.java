@@ -4,19 +4,20 @@
 
 package frc.robot.commands;
 
-
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
-import frc.robot.subsystems.Intake;
+import frc.robot.subsystems.Feeder;
 
-public class ControlIntake extends CommandBase {
-  Intake intaker;
-  final CommandXboxController m_xboxController;
-  /** Creates a new ControlIntake. */
-  public ControlIntake(Intake intaker, CommandXboxController xboxcontroller) {
-    this.intaker = intaker;
-    m_xboxController = xboxcontroller;
-    addRequirements(intaker);
+public class ControlFeeder extends CommandBase {
+  Feeder feeder;
+  final CommandXboxController m_XboxController;
+
+  /** Creates a new ControlFeeder. */
+  public ControlFeeder(Feeder feeder, final CommandXboxController XboxController) {
+    this.feeder = feeder;
+    this.m_XboxController = XboxController;
+    addRequirements(feeder);
+  
   }
 
   // Called when the command is initially scheduled.
@@ -26,7 +27,7 @@ public class ControlIntake extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    intaker.rawIntake(m_xboxController.getRightY());
+    feeder.rawFeeder(m_XboxController.getRightY() * 0.5);
   }
 
   // Called once the command ends or is interrupted.
