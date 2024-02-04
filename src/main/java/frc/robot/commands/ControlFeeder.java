@@ -27,7 +27,7 @@ public class ControlFeeder extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    feeder.rawFeeder(m_XboxController.getRightY() * 0.5);
+    feeder.rawFeeder(m_XboxController.getLeftY() * 0.5);
   }
 
   // Called once the command ends or is interrupted.
