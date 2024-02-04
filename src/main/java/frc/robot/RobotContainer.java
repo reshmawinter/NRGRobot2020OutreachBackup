@@ -7,9 +7,6 @@ package frc.robot;
 import frc.robot.commands.*;
 import frc.robot.subsystems.*;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
-import edu.wpi.first.util.sendable.Sendable;
-import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
-import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
 import edu.wpi.first.wpilibj2.command.button.CommandJoystick;
 
 public class RobotContainer {
@@ -39,42 +36,7 @@ public class RobotContainer {
     rpm.setDefaultCommand(new ManualShooter(rpm, operatorController));
 
     drivetrain.setDefaultCommand(new DefaultDrive(drivetrain,leftJoystick, rightJoystick,driveController));
-    /**ShuffleboardTab turretTab = Shuffleboard.getTab("Information"); // creates tab called Information on Shuffle board
-    turretTab.add("Turret Heading", Turret.getHeading()) // adds a Turret Heading widget
-    .withPosition(1, 1) // puts the Turret Heading widget at column and row index 1
-    .withSize(2, 1) // makes the Turret Heading widget 2 wide and 1 high
-    .getEntry(); 
-
-    ShuffleboardTab hoodTab = Shuffleboard.getTab("Information");
-    hoodTab.add("Hood Heading", Hood.getHeading())
-    .withPosition(3, 1)
-    .withSize(2, 1);
-
-    drivetrain.setDefaultCommand(new DefaultDrive(drivetrain, leftJoystick, rightJoystick, driveController));
-    ShuffleboardTab operatorTab = Shuffleboard.getTab("Operator");
-    operatorTab.add("Operator", operatorTab) // adds a Turret Heading widget
-    .withPosition(1, 1) // puts the Turret Heading widget at column and row index 1
-    .withSize(2, 1) // makes the Turret Heading widget 2 wide and 1 high
-    .getEntry(); **/
-
   }   
-
-  
-
-  // private void getEntry() {
-  // }
-
-
-
-  // private Sendable preferencesTab() {
-  //   ShuffleboardTab preferencesTab = Shuffleboard.getTab("Preferences");
-  //   preferencesTab.add("YasQueen", preferencesTab())
-  //   .withPosition(1, 1)
-  //   .withSize(2, 1);
-  //   return null;
-  // }
-
-
 
   /**
    * Use this method to define your button->command mappings. Buttons can be created by
