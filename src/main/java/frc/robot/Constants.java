@@ -17,13 +17,15 @@ public final class Constants {
     //PWM ports
     public static final int kLeftDriveMotor1Port = 2;
     public static final int kLeftDriveMotor2Port = 3;
-    public static final int kRightDriveMotor1Port = 0;
+    //public static final int kRightDriveMotor1Port = 0;
     public static final int kRightDriveMotor2Port = 1;
 
     public static final double kSlowModePower = 0.4; //percent
     public static final double kFullSpeedRateLimit = 0.01; //Increase (percentage of 1) per 20ms
 
     public static final int isUsingXboxController = 0; //CHANGE THIS TO 1 TO USE XBOX CONTROLLER TO DRIVE
+
+    public static final int kRGBPort = 0;
 
     //TODO: slewrate need more tuning
     public static final double kDriveSlewRate = 1000; // x percent increase per second, set to arbitrarily high number to disable
