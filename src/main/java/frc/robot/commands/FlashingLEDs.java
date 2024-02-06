@@ -9,7 +9,6 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.util.Color8Bit;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.Constants;
 import frc.robot.Constants.ColorConstants;
 import frc.robot.subsystems.AddressableLEDSubsystem;
 
@@ -46,11 +45,8 @@ public class FlashingLEDs extends CommandBase {
     if (timer.advanceIfElapsed(blinkingSpeed)) {
       if (color.equals(color1)) {
         color = color2;
-      } else if(!color.equals(color1)) {
+      } else {
         color = color1;
-      }
-      else{
-        color = Constants.ColorConstants.BLACK;
       }
       led.fillAndCommitColor(color);
     }
@@ -59,6 +55,7 @@ public class FlashingLEDs extends CommandBase {
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
+    led.set(false);
   }
 
   // Returns true when the command should end.

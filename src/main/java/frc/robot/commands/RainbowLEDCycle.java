@@ -4,31 +4,26 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
-import frc.robot.Constants.RobotConstants.PWMPort;
 import frc.robot.subsystems.AddressableLEDSubsystem;
-import frc.robot.utilities.AddressableLEDs;
 
 public class RainbowLEDCycle extends CommandBase {
-  private AddressableLEDSubsystem led = new AddressableLEDSubsystem(PWMPort.LightningLED, 16);
   public static int colorIndex=0;
+  private final AddressableLEDSubsystem led;
   /** Creates a new RainbowLEDCycle. */
-  public RainbowLEDCycle(AddressableLEDSubsystem led, int numberOfLEDs) {
+  public RainbowLEDCycle(AddressableLEDSubsystem led) {
     // Use addRequirements() here to declare subsystem dependencies.
     this.led = led;
     addRequirements(led);
 
   }
 
-  public RainbowLEDCycle(AddressableLEDSubsystem leds) {
-  }
-
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
     led.fillAndCommitColor(Constants.ColorConstants.COLORS[colorIndex]);
-    
     if(colorIndex>=Constants.ColorConstants.COLORS.length-1){
       colorIndex=0;
     }
